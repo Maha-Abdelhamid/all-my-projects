@@ -1,0 +1,329 @@
+:root {
+  --bg-color: #1a202c;
+  --text-color: #e2e8f0;
+  --card-back-color: #63b3ed;
+  --card-front-color: #4a5568;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Tajawal", "Inter", sans-serif;
+  margin: 0;
+  padding: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.page {
+  max-width: 700px;
+  margin: auto;
+  background-color: var(--card-front-color);
+  border-radius: 16px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: background-color 0.3s;
+}
+.hidden {
+  display: none;
+}
+.game-board {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+.game-board.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.game-board.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.game-board.cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+.card {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  color: var(--text-color);
+}
+.card-front {
+  background-color: var(--card-front-color);
+  transform: rotateY(180deg);
+}
+.card-back {
+  background-color: var(--card-back-color);
+  color: #1a202c;
+}
+.card.matched {
+  opacity: 0.5;
+  pointer-events: none;
+  transform: scale(0.9);
+  transition: opacity 0.6s, transform 0.6s;
+}
+.message-box {
+  background-color: var(--card-front-color);
+  color: var(--text-color);
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.game-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background: #4caf50;
+  color: white;
+  border: none;
+}
+.game-button:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+}
+.reset-button {
+  background: #e53e3e;
+}
+.reset-button:hover {
+  background: #c53030;
+}
+.score-display {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--text-color);
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 300px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #4a5568;
+  background: #2d3748;
+  color: var(--text-color);
+}
+.form-group input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #4a5568;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  border-radius: 5px;
+}
+.form-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #63b3ed;
+  cursor: pointer;
+}
+.form-group input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #63b3ed;
+  cursor: pointer;
+}
+/* Player colors for two players mode */
+.player1-bg {
+  background-color: #e3f0ff !important;
+  color: #1a202c !important;
+}
+.player2-bg {
+  background-color: #eaffea !important;
+  color: #1a202c !important;
+}
+/* Themes (20+) */
+.theme-0 {
+  --bg-color: #1a202c;
+  --text-color: #e2e8f0;
+  --card-back-color: #63b3ed;
+  --card-front-color: #4a5568;
+}
+.theme-1 {
+  --bg-color: #ffecd2;
+  --text-color: #5b4636;
+  --card-back-color: #fcb69f;
+  --card-front-color: #f6ae2d;
+}
+.theme-2 {
+  --bg-color: #034f84;
+  --text-color: #ffffff;
+  --card-back-color: #92a8d1;
+  --card-front-color: #f7cac9;
+}
+.theme-3 {
+  --bg-color: #2f5233;
+  --text-color: #d9ead3;
+  --card-back-color: #6aa84f;
+  --card-front-color: #38761d;
+}
+.theme-4 {
+  --bg-color: #e6e6fa;
+  --text-color: #4b0082;
+  --card-back-color: #c8a2c8;
+  --card-front-color: #9370db;
+}
+.theme-5 {
+  --bg-color: #ffb6b9;
+  --text-color: #6a0572;
+  --card-back-color: #fcd5ce;
+  --card-front-color: #f8a5c2;
+}
+.theme-6 {
+  --bg-color: #d0f0c0;
+  --text-color: #2f4f4f;
+  --card-back-color: #a8dadc;
+  --card-front-color: #457b9d;
+}
+.theme-7 {
+  --bg-color: #ffe5b4;
+  --text-color: #5c4033;
+  --card-back-color: #ffccbc;
+  --card-front-color: #ffab91;
+}
+.theme-8 {
+  --bg-color: #0b132b;
+  --text-color: #ffffff;
+  --card-back-color: #1c2541;
+  --card-front-color: #3a506b;
+}
+.theme-9 {
+  --bg-color: #ffc1cc;
+  --text-color: #800020;
+  --card-back-color: #ffb6b9;
+  --card-front-color: #ff6f91;
+}
+.theme-10 {
+  --bg-color: #87ceeb;
+  --text-color: #003366;
+  --card-back-color: #b0e0e6;
+  --card-front-color: #4682b4;
+}
+.theme-11 {
+  --bg-color: #fff8dc;
+  --text-color: #b8860b;
+  --card-back-color: #ffd700;
+  --card-front-color: #daa520;
+}
+.theme-12 {
+  --bg-color: #ff7f50;
+  --text-color: #4b2e83;
+  --card-back-color: #ff6f61;
+  --card-front-color: #e76f51;
+}
+.theme-13 {
+  --bg-color: #708090;
+  --text-color: #f0f8ff;
+  --card-back-color: #778899;
+  --card-front-color: #2f4f4f;
+}
+.theme-14 {
+  --bg-color: #004953;
+  --text-color: #a7c5bd;
+  --card-back-color: #2a9d8f;
+  --card-front-color: #264653;
+}
+.theme-15 {
+  --bg-color: #ffefd5;
+  --text-color: #556b2f;
+  --card-back-color: #98fb98;
+  --card-front-color: #2e8b57;
+}
+.theme-16 {
+  --bg-color: #800020;
+  --text-color: #ffe4e1;
+  --card-back-color: #c71585;
+  --card-front-color: #db7093;
+}
+.theme-17 {
+  --bg-color: #e0ffff;
+  --text-color: #4682b4;
+  --card-back-color: #afeeee;
+  --card-front-color: #5f9ea0;
+}
+.theme-18 {
+  --bg-color: #fffacd;
+  --text-color: #b8860b;
+  --card-back-color: #ffeb3b;
+  --card-front-color: #fbc02d;
+}
+.theme-19 {
+  --bg-color: #36454f;
+  --text-color: #dcdcdc;
+  --card-back-color: #4f5b66;
+  --card-front-color: #2f4f4f;
+}
+@media (max-width: 480px) {
+  .game-board {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .card-inner {
+    font-size: 1.8em;
+  }
+}
+@media (max-width: 380px) {
+  .game-board {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .card-inner {
+    font-size: 1.5em;
+  }
+}

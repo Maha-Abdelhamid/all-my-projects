@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Memory Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="theme-0">
+    <div id="mainMenu" class="page">
+      <h1 id="mainTitle" class="text-3xl font-bold mb-4">Memory Game</h1>
+      <button id="startGameButton" class="game-button">Start Game</button>
+      <button id="settingsButton" class="game-button">Settings</button>
+    </div>
+
+    <div id="settingsPage" class="page hidden">
+      <h1 id="settingsTitle" class="text-3xl font-bold mb-4">Settings</h1>
+      <div class="form-group">
+        <label for="langSelect" id="langLabel">Language:</label>
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="ar">العربية</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="gameMode" id="gameModeLabel">Game Mode:</label>
+        <select id="gameMode">
+          <option value="playerVsPlayer">Two Players</option>
+          <option value="playerVsComputer">Player vs Computer</option>
+        </select>
+      </div>
+      <div class="form-group" id="computerDifficultyGroup">
+        <label for="computerDifficulty" id="compDiffLabel"
+          >Computer Difficulty:</label
+        >
+        <select id="computerDifficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+        </select>
+      </div>
+      <div class="form-group" id="playerNamesGroup">
+        <label for="player1Name" id="player1NameLabel">Player 1 Name:</label>
+        <input type="text" id="player1Name" placeholder="Player 1" />
+      </div>
+      <div class="form-group" id="player2NameGroup">
+        <label for="player2Name" id="player2NameLabel">Player 2 Name:</label>
+        <input type="text" id="player2Name" placeholder="Player 2" />
+      </div>
+      <div class="form-group">
+        <label for="initialRevealTime" id="revealTimeLabel"
+          >Initial Reveal Time (seconds):
+          <span id="revealTimeValue">3</span></label
+        >
+        <input
+          type="range"
+          id="initialRevealTime"
+          min="0"
+          max="10"
+          value="3"
+          step="1"
+        />
+      </div>
+      <div class="form-group">
+        <label for="themeSelect" id="themeLabel">Theme:</label>
+        <select id="themeSelect"></select>
+      </div>
+      <div class="form-group">
+        <label for="boardSize" id="boardSizeLabel">Board Size:</label>
+        <select id="boardSize">
+          <option value="4x4">4x4 (16 cards)</option>
+          <option value="4x5">4x5 (20 cards)</option>
+          <option value="4x6">4x6 (24 cards)</option>
+          <option value="6x6">6x6 (36 cards)</option>
+        </select>
+      </div>
+      <button id="saveSettingsButton" class="game-button">Save & Back</button>
+    </div>
+
+    <div id="gamePage" class="page hidden">
+      <h1 id="gameTitle" class="text-3xl font-bold mb-4">Memory Game</h1>
+      <div class="score-display">
+        <span id="playerTurnDisplay"></span>
+        <span id="score1Box">Player 1: <span id="score1">0</span></span>
+        <span id="score2Box" style="display: none"
+          >Player 2: <span id="score2">0</span></span
+        >
+        <span id="movesBox">Moves: <span id="moves">0</span></span>
+      </div>
+      <div class="game-board" id="gameBoard"></div>
+      <div class="message-box" id="messageBox">Click any card to start!</div>
+      <button id="backToMenuButton" class="game-button reset-button">
+        Back to Menu
+      </button>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

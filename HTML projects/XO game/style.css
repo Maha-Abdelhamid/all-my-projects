@@ -1,0 +1,94 @@
+.contanir {
+  width: 500px;
+  height: 450px;
+  display: grid;
+  grid-template-columns: repeat(3, 33%) !important;
+  grid-template-rows: repeat(3, 33%) !important;
+  gap: 1px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.square {
+  width: 499 !important;
+  height: 450;
+  background-color: #687d7d;
+  font-size: 60px;
+  text-align: center;
+}
+
+.⭕ {
+  background-color: #b89189 !important;
+}
+
+.✖️ {
+  background-color: #a6a6a6;
+}
+
+.⭕s {
+  background-color: #e0ccc8;
+}
+.✖️s {
+  background-color: #e0e7e7;
+}
+
+.bigContanir {
+  width: 5000px;
+  height: 5000px;
+}
+
+.one {
+  display: grid;
+  grid-area: 1/1;
+}
+
+.two {
+  display: grid;
+  grid-area: 1/2;
+}
+
+.three {
+  display: grid;
+  grid-area: 1/3;
+}
+
+.four {
+  display: grid;
+  grid-area: 2/1;
+}
+
+.five {
+  display: grid;
+  grid-area: 2/2;
+}
+
+.six {
+  display: grid;
+  grid-area: 2/3;
+}
+
+.seven {
+  display: grid;
+  grid-area: 3/1;
+}
+
+.eight {
+  display: grid;
+  grid-area: 3/2;
+}
+
+.nine {
+  display: grid;
+  grid-area: 3/3;
+}
+
+
+.bigContanir {
+  display: flex;
+  margin-top: 200px ;
+  justify-content: center;
+  align-content: center;
+}
